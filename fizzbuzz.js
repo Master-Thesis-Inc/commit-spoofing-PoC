@@ -2,7 +2,7 @@ const fizzBuzz = (max) => {
   for (i = 0; i <= max; i++) {
     let toPrint = "";
 
-    if (i % 3 == 0) {
+    if (i % 2 == 0) {
       toPrint += "Fizz";
     }
 

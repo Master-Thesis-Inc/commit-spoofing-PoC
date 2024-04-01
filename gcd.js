@@ -10,4 +10,4 @@ function gcd(a, b) {
   return a;
 }
 
-console.log(gcd(20, 50));
+console.log(gcd(20, 500));

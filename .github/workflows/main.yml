@@ -1,0 +1,22 @@
+on: [push]
+
+jobs:
+  commit_spoofing_detective_job:
+    runs-on: ubuntu-latest
+    name: A job that checks for potentially spoofed commits
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Commit spoofing check
+        id: commit-spoof
+        uses: Ferejbo/commit-spoofing-detective-action@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check Mismatch Output
+        if: steps.commit-spoof.outputs.mismatch == 'true'
+        run: echo "A commit spoofing was potentially detected."
+
+      # Optional: Additional steps based on the mismatch
+      - name: Notify Admins
+        if: steps.commit-spoof.outputs.mismatch == 'true'
+        run: echo "Sending notification to admins about potential spoofing."

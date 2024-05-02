@@ -15,8 +15,8 @@ jobs:
       - name: Log Mismatch Output
         run: echo "Mismatch Output -> ${{ steps.commit-spoof.outputs.mismatch }}"
       - name: Check Mismatch Output
-        if: steps.commit-spoof.outputs.mismatch == "true"
+        if: steps.commit-spoof.outputs.mismatch == 'true'
         run: echo "A commit spoofing was potentially detected."
       - name: Notify Admins
-        if: steps.commit-spoof.outputs.mismatch == "true"
+        if: steps.commit-spoof.outputs.mismatch == 'true'
         run: echo "Sending notification to admins about potential spoofing."

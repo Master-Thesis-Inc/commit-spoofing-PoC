@@ -11,3 +11,5 @@ function gcd(a, b) {
 }
 
 console.log(gcd(20, 5));
+
+//Hehe, some malicious code
